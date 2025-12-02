@@ -1,0 +1,510 @@
+/* Reset */
+* { 
+  margin:0; 
+  padding:0; 
+  box-sizing:border-box; 
+  font-family: 'Inter', sans-serif; 
+}
+
+/* Corpo */
+body {
+  background: #222;
+    color: #fff;
+}
+
+/* Container geral */
+.app-container { 
+  display: flex; 
+  width: 100%; 
+  height: 100vh; 
+}
+
+/* Sidebar colapsável */
+.sidebar {
+    z-index: 3000;
+    width: 60px; /* Largura mínima quando fechada */
+    transition: width 0.3s;
+    overflow: hidden;
+    position: relative;
+    background: #2c2c2c;
+    border: 2px solid #5a10e4; /* Borda roxa */
+    border-radius: 0px 15px 15px 0px;        
+    padding: 20px 10px;         
+}
+
+/* Ao passar o mouse, abre */
+.sidebar:hover {
+    width: 220px; /* Largura completa */
+}
+
+/* Logo e histórico */
+.sidebar .logo,
+.sidebar .historico-container,
+.sidebar nav ul li a {
+    opacity: 1;
+    transition: opacity 0.3s, margin 0.3s;
+}
+
+/* Quando fechada, esconder elementos exceto ícones */
+.sidebar:not(:hover) .logo,
+.sidebar:not(:hover) .historico-container,
+.sidebar:not(:hover) nav ul li a {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Itens da lista com mais espaçamento */
+.sidebar nav ul li {
+    display: flex;
+    align-items: center;
+    gap: 20px;         /* aumenta distância entre ícone e texto */
+    padding: 15px 12px; /* aumenta padding interno */
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.sidebar nav ul li:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Ícones permanecem visíveis mesmo quando a sidebar está fechada */
+.sidebar nav ul li i {
+    width: 24px; /* aumenta um pouco o tamanho do ícone */
+    text-align: center;
+}
+
+.sidebar .logo { 
+  font-size: 22px; 
+  font-weight: bold; 
+  color:#fff; 
+}
+.sidebar .logo span { 
+  color:#bb86fc; 
+}
+
+.logo img{
+  width: 30px;
+  height: 27px;
+}
+.logo{
+  margin: 8px;
+  display: flex;
+}
+
+.sidebar nav ul { 
+  list-style:none; 
+}
+.sidebar nav ul li {
+    display:flex; 
+    align-items:center; 
+    gap:10px; 
+    padding:10px 12px; 
+    border-radius:10px;
+    transition:0.3s; 
+    cursor:pointer;
+}
+.sidebar nav ul li:hover { 
+  background: rgba(255,255,255,0.1); 
+}
+
+.sidebar nav ul li a { 
+  color:#bb86fc; 
+  text-decoration:none; 
+  font-weight:600; 
+}
+.sidebar nav ul li i { 
+  width:20px; 
+}
+
+/* Histórico */
+.historico-container { 
+  margin-top:20px; 
+}
+.historico { 
+  background:#3c2a55; 
+  padding:8px; 
+  border-radius:8px; 
+  margin-bottom:5px; 
+  cursor:pointer; 
+  display:flex; 
+  justify-content:space-between; 
+  align-items:center; 
+  font-size:14px;
+ }
+.historico:hover { 
+  background:#4a3570; 
+}
+
+/* Conteúdo principal */
+.content {
+    flex:1; 
+    display:flex; 
+    flex-direction:column; 
+    align-items:center; 
+    justify-content:flex-start; 
+    padding:30px; 
+    gap:25px;
+}
+
+/* Chatbox */
+.chatbox {
+  background-color: #3b3b3bd8;
+  width: 75%;
+  max-width: 1100px;
+  height: 100%;
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+
+#mensagens { 
+  flex:1; overflow-y:auto; 
+  display:flex; 
+  flex-direction:column; 
+  gap:15px; 
+  padding-right:10px;
+  
+ }
+.mensagem { 
+  max-width:70%; 
+  display:flex; 
+  align-items:flex-end; 
+  gap:10px; 
+  padding:10px; 
+}
+.mensagem img { 
+  width:40px; 
+  height:40px; 
+  border-radius:50%; 
+  object-fit:cover; 
+}
+.usuario { 
+  align-self:flex-end; 
+  flex-direction:row-reverse; 
+}
+.usuario div { 
+  background:#bdbdbd; 
+  color:black; 
+  padding:12px 18px; 
+  border-radius:20px 20px 0 20px; 
+}
+.ia { 
+  align-self:flex-start; 
+}
+.ia div { 
+  background:#e5e5e5; 
+  color:black; 
+  padding:12px 18px; 
+  border-radius:20px 20px 20px 0; 
+}
+
+/* Entrada de mensagem */
+.input-container { 
+  display:flex; 
+  gap:10px; 
+  margin-top:15px; 
+}
+input[type="text"] { 
+  flex:1; 
+  padding:12px; 
+  border-radius:12px; 
+  border:none; 
+  font-size:15px; 
+  background:#ddd; 
+  color:black; 
+}
+button { 
+  padding:10px 15px; 
+  border:none; 
+  border-radius:8px; 
+  background:#5a10e4; 
+  color:white; 
+  cursor:pointer; 
+  transition:0.3s; 
+}
+button:hover {
+   background:#dbdbdb; 
+   color:black; 
+  }
+
+
+
+#inputBox { 
+  padding:10px; 
+  border:none; 
+  border-bottom:1px solid #ccc; 
+  outline:none;
+  width:100%; 
+  height:50px; 
+}
+
+#outputBox { 
+  flex:1; 
+  padding:15px; 
+  overflow-y:auto; 
+  word-wrap:break-word; 
+}
+
+/* Pop-ups */
+.popup { 
+  display:none; 
+  position:fixed; 
+  top:0;
+   left:0; 
+   width:100%; 
+   height:100%; 
+   background:rgba(0,0,0,0.7); 
+   z-index:1000; 
+  }
+
+.popup-content {
+   position:absolute; 
+   top:50%; 
+   left:50%; 
+   transform:translate(-50%,-50%); 
+   background:#5a10e4;
+    padding:30px; 
+    border-radius:12px; 
+    width:80%; 
+    max-width:700px;
+   }
+
+.close { 
+  position:absolute; 
+  top:10px; 
+  right:15px; 
+  font-size:24px; 
+  cursor:pointer; 
+}
+
+.video-container { 
+  margin-top:20px; 
+  text-align:center; 
+}
+
+
+/* Animação dos três pontinhos (...) */
+.thinking {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  z-index: 100;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  color: black;
+  background: #000000;
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: blink 1.4s infinite;
+  z-index: -100;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0% { opacity: 0.4; transform: translateY(0px); }
+  20% { opacity: 1; transform: translateY(-4px); }
+  100% { opacity: 0.4; transform: translateY(0px); }
+}
+/*nome no canto*/
+.topo-chat {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px 20px;
+  background: transparent; /* ou coloque a cor que preferir */
+  z-index: 1000;
+}
+
+.usuario-info {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: #5a10e4;
+  padding: 8px 16px;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+#particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0; /* atrás de tudo */
+  pointer-events: none; /* ← ALTERADO */
+  background: transparent;
+}
+
+header, .hero, .caixa-transparente, .conteudo, .equipe, .sobre {
+  position: relative;
+  z-index: 10;
+}
+
+/* 🔥 MENU HAMBURGUER — MOBILE */
+.menu-btn {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 4000;
+  background: #5a10e4;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Desktop */
+.novo-chat-mobile {
+  display: none;
+}
+
+.novo-chat-desktop {
+  display: block;
+}
+
+/* Botão enviar */
+.enviar-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #8849fd;
+  font-size: 20px;
+}
+
+@media (max-width: 900px) {
+
+  .menu-btn {
+    display: block; /* aparece no mobile */
+    z-index: 4000
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -220px;
+    top: 0;
+    height: 100vh;
+    width: 220px;
+    border-radius: 0 15px 15px 0;
+    transition: left 0.3s;
+  }
+
+  body.sidebar-open .sidebar {
+    left: 0;
+  }
+
+  /* Mostra tudo quando sidebar aberta no mobile */
+  body.sidebar-open .sidebar .logo,
+  body.sidebar-open .sidebar .historico-container,
+  body.sidebar-open .sidebar nav ul li a {
+      opacity: 1;
+      pointer-events: auto;
+  }
+
+  .content {
+    width: 100%;
+    padding: 10px;
+    padding-top: 60px; /* espaço do botão hamburger */
+    justify-content: flex-end;
+  }
+
+  .chatbox {
+    width: 100%;
+    max-width: 100%;
+    height: calc(100vh - 100px);  /* ocupa tela inteira sem cortar */
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+  }
+
+  #mensagens {
+    flex: 1;
+    max-height: 100%;
+  }
+
+  .input-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #222;
+    padding: 10px;
+    z-index: 5000;
+    display: flex;
+    z-index: 9999 !important;
+  }
+
+  input[type="text"] {
+    font-size: 14px;
+
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 2500;
+}
+
+
+    /* Novo Chat navbar */
+    .novo-chat-mobile {
+      display: inline-block;
+      margin-left: 10px;
+  }
+
+  /* Esconde botão desktop dentro do chat */
+  .novo-chat-desktop {
+      display: none;
+  }
+
+  .input-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      background: #222;
+      display: flex;
+      gap: 10px;
+  }
+
+  .input-container input {
+      flex: 1;
+      padding-right: 40px; /* espaço pro ícone enviar */
+  }
+
+  /* ícone enviar dentro do input */
+  .enviar-btn {
+      position: absolute;
+      right: 20px;
+      bottom: 15px;
+  }
+}
+
+
+

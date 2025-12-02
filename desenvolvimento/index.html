@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Desenvolvimento de uma IA</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+</head>
+
+<body>
+
+<div id="particles-container"></div>
+
+<header>
+  <div class="logo">
+    <img src="../home/imgs_home/mentor_logo.png" alt="logo">
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="../home/index.html">Home</a></li>
+      <li><a href="#">I.A</a></li>
+      <li><a href="../projeto/index.html">Projeto</a></li>
+      <li><a href="../cadastro1/index.html" class="botao-cadastro">Cadastro</a></li>
+    </ul>
+  </nav>
+
+  <div class="menu-hamburguer" id="menu-btn">
+    ☰
+  </div>
+</header>
+
+<!-- Overlay -->
+<div id="menu-overlay"></div>
+
+<!-- Menu Lateral Mobile -->
+<div id="menu-lateral">
+  <ul>
+    <li><a href="../home/index.html">Home</a></li>
+    <li><a href="#">I.A</a></li>
+    <li><a href="../projeto/index.html">Projeto</a></li>
+    <li><a href="../cadastro1/index.html">Cadastro</a></li>
+  </ul>
+</div>
+
+<section class="hero">
+  <div class="hero-text" data-aos="fade-up">
+    <h1><span>Desenvolvimento</span> de uma I.A</h1>
+    <p>Como funciona a construção de uma inteligência artificial moderna.</p>
+  </div>
+</section>
+
+<section class="conteudo">
+  <div class="caixa" data-aos="fade-up">
+    <h2>1. Coleta de Dados</h2>
+    <p>
+      A base de qualquer IA é formada por dados. Eles podem vir de imagens,
+      textos, áudios ou interações humanas. Quanto mais dados de qualidade,
+      mais inteligente e precisa a IA pode se tornar.
+    </p>
+  </div>
+
+  <div class="caixa" data-aos="fade-up">
+    <h2>2. Pré-processamento</h2>
+    <p>
+      Nessa etapa, os dados passam por limpeza, organização e transformação.
+      O objetivo é deixá-los consistentes e utilizáveis pelos modelos de aprendizagem.
+    </p>
+  </div>
+
+  <div class="caixa" data-aos="fade-up">
+    <h2>3. Treinamento do Modelo</h2>
+    <p>
+      Aqui a IA aprende padrões usando redes neurais e algoritmos avançados.
+      O modelo ajusta milhares de parâmetros até atingir o melhor desempenho.
+    </p>
+  </div>
+
+  <div class="caixa" data-aos="fade-up">
+    <h2>4. Avaliação e Testes</h2>
+    <p>
+      Após treinada, a IA é testada para garantir precisão, segurança e
+      confiabilidade. Erros são detectados e corrigidos antes da implantação.
+    </p>
+  </div>
+
+  <div class="caixa" data-aos="fade-up">
+    <h2>5. Implementação e Uso Real</h2>
+    <p>
+      Quando pronta, a IA é integrada a sistemas, aplicativos, sites e robôs.
+      A partir daí, ela passa a ajudar usuários com tarefas reais.
+    </p>
+  </div>
+
+  <div class="caixa" data-aos="fade-up">
+    <h2>6. Aprimoramento Contínuo</h2>
+    <p>
+      A inteligência artificial nunca para de evoluir. Ela recebe novos dados,
+      corrige falhas e se torna cada vez mais eficiente com o tempo.
+    </p>
+  </div>
+</section>
+
+<footer>
+
+    <section class="timeline-section">
+        <h2 class="timeline-title">Linha do Tempo do Desenvolvimento da IA</h2>
+      
+        <div class="timeline">
+      
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-content">
+              <h3>1956 — A Origem</h3>
+              <p>O termo “Inteligência Artificial” surge na Conferência de Dartmouth.</p>
+            </div>
+          </div>
+      
+          <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-content">
+              <h3>1980 — Redes Neurais</h3>
+              <p>As redes neurais começam a evoluir, imitando o funcionamento do cérebro humano.</p>
+            </div>
+          </div>
+      
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-content">
+              <h3>2012 — Deep Learning</h3>
+              <p>Modelos profundos revolucionam o reconhecimento de imagens e voz.</p>
+            </div>
+          </div>
+      
+          <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-content">
+              <h3>2020 — IAs Generativas</h3>
+              <p>Modelos passam a criar textos, imagens, vídeos e sons de forma autônoma.</p>
+            </div>
+          </div>
+      
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-content">
+              <h3>2025 — Nova Era</h3>
+              <p>A integração profunda entre IA e sociedade redefine produtividade e criatividade.</p>
+            </div>
+          </div>
+      
+        </div>
+      </section>
+      
+      
+  <p>Copyright 2025 – Todos os Direitos Reservados</p>
+</footer>
+
+  </div>
+<!-- Caixa de acessibilidade -->
+<div class="caixa-acessibilidade">
+  <button id="abrirAcessibilidade" class="botao-acessibilidade" aria-label="Abrir acessibilidade">♿</button>
+
+  <div class="conteudo-acessibilidade" id="conteudoAcessibilidade">
+    <h3>Acessibilidade</h3>
+    <button id="aumentar" class="controle">A+</button>
+    <button id="diminuir" class="controle">A-</button>
+    <button id="resetar" class="controle">A</button>
+
+    <!-- VLibras -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+  </div>
+</div>
+
+
+<!-- Adicione antes do fechamento do body (substituindo o atual DOMContentLoaded) -->
+<script>
+  // Garantir valor inicial no CSS (você também pode colocar no seu arquivo CSS)
+  document.documentElement.style.fontSize = localStorage.getItem('tamanhoFonte') || '100%';
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const botaoAcessibilidade = document.getElementById("abrirAcessibilidade");
+    const conteudoAcessibilidade = document.getElementById("conteudoAcessibilidade");
+
+    botaoAcessibilidade.addEventListener("click", () => {
+      conteudoAcessibilidade.classList.toggle("mostrar");
+    });
+
+    // Controles de fonte
+    const aumentar = document.getElementById("aumentar");
+    const diminuir = document.getElementById("diminuir");
+    const resetar = document.getElementById("resetar");
+
+    // limite mínimo e máximo (em porcentagem)
+    const MIN = 70;
+    const MAX = 150;
+
+    // lê valor salvo (em porcentagem, ex: "110%") ou usa 100%
+    let tamanhoAtual = parseInt((localStorage.getItem('tamanhoFonte') || '100%').replace('%',''), 10);
+
+    function aplicarTamanho(t) {
+      // atualiza root (html) para que rems e heranças ajustem corretamente
+      document.documentElement.style.fontSize = `${t}%`;
+      // salva preferência
+      localStorage.setItem('tamanhoFonte', `${t}%`);
+    }
+
+    // aplica no carregamento
+    aplicarTamanho(tamanhoAtual);
+
+    aumentar.addEventListener("click", () => {
+      if (tamanhoAtual < MAX) {
+        tamanhoAtual += 10;
+        aplicarTamanho(tamanhoAtual);
+      }
+    });
+
+    diminuir.addEventListener("click", () => {
+      if (tamanhoAtual > MIN) {
+        tamanhoAtual -= 10;
+        aplicarTamanho(tamanhoAtual);
+      }
+    });
+
+    resetar.addEventListener("click", () => {
+      tamanhoAtual = 100;
+      aplicarTamanho(tamanhoAtual);
+    });
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="desenvolvimento.js"></script>
+<script src="particulas.js"></script>
+
+<script>
+  AOS.init();
+</script>
+
+</body>
+</html>

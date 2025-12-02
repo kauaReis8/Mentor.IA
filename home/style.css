@@ -1,0 +1,497 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 100%; /* base — será sobrescrito pelo JS quando o usuário ajustar */
+  transition: font-size 180ms ease;
+}
+/* usar rems / herdar para elementos de formulários */
+body, input, textarea, select, button {
+  font-size: 1rem; /* agora todos acompanharão mudanças na raíz */
+}
+/* placeholders também escalam corretamente quando inputs usam rem */
+input::placeholder,
+textarea::placeholder {
+  font-size: 0.95rem;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background: #222;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Cabeçalho */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+
+.logo img{
+  width: 35px;
+}
+
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #bb86fc;
+}
+
+/* Hero Section */
+.hero {
+  height: 30vh;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 5%;
+}
+
+/* Texto */
+.hero-text h1 {
+  font-size: 60px;
+  top: 20px;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.776);
+}
+
+.hero-text span {
+  color: #bb86fc;
+}
+
+.botao {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 35px;
+  background-color: #8849fd;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.botao:hover {
+  background-color: #9b5de5;
+  transform: scale(1.05);
+}
+
+
+.conteudo h2, .sobre h2, .equipe h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #bb86fc;
+}
+
+.conteudo p, .sobre p {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.conteudo{
+  margin-top: -10px;
+}
+
+/* Botão */
+.botao-ia {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 30px;
+  background: #8849fd;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.botao-ia:hover {
+  background: #9b5de5;
+  transform: scale(1.05);
+}
+
+#particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0; /* atrás de tudo */
+  pointer-events: none; /* ← ALTERADO */
+  background: transparent;
+}
+
+header, .hero, .caixa-transparente, .conteudo, .equipe, .sobre {
+  position: relative;
+  z-index: 10;
+}
+.botao-cadastro {
+  padding: 8px 20px;
+  background: #bb86fc;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.botao-cadastro:hover {
+  background: #9b5de5;
+}
+
+ /*  Botões de fonte fixos à esquerda */
+    .botoes-fonte-fixo {
+      position: fixed;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+
+    .botoes-fonte-fixo button {
+      background: #6200ea;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+      width: 60px;
+    }
+
+    .botoes-fonte-fixo button:hover {
+      background: #4500b5;
+      transform: scale(1.05);
+    }
+
+    /* Botão VLibras continua à direita */
+
+
+.carrossel-retangulos {
+  width: 78%;
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.carrossel-wrapper {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.slide-retangulo {
+  min-width: 100%;
+  flex-shrink: 0;
+  background-color: #1d1b20;
+  border-radius: 20px;
+  padding: 50px 40px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-retangulo h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #bb86fc;
+}
+
+.slide-retangulo h2 span {
+  color: #fffdd0;
+}
+
+.slide-retangulo p {
+  font-size: 18px;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.slide-retangulo .botao-ia {
+  padding: 12px 30px;
+  border-radius: 30px;
+  background: #fff;
+  color: #bb86fc;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.slide-retangulo .botao-ia:hover {
+  background: #e0d7ff;
+  transform: scale(1.05);
+}
+
+/* Botões de navegação */
+.prev-retangulo, .next-retangulo {
+  width: 60px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #bb86fc;
+  border: none;
+  color: #fff;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: 0.3s;
+}
+
+.prev-retangulo:hover, .next-retangulo:hover {
+  background-color: rgba(255,255,255,0.6);
+  color: #1d1b20;
+}
+
+.prev-retangulo { left: 15px; }
+.next-retangulo { right: 15px; }
+
+/* MENU HAMBÚRGUER */
+.menu-hamburguer {
+  display: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: white;
+}
+
+/* NAV normal no PC */
+nav ul {
+  display: flex;
+}
+
+/* --------------------------- */
+/*        MENU LATERAL         */
+/* --------------------------- */
+
+#menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 90;
+}
+
+#menu-lateral {
+  position: fixed;
+  top: 0;
+  right: -300px; /* começa escondido */
+  width: 40%;
+  max-width: 260px;
+  height: 100vh;
+  background: #2c2c2c;
+  padding: 40px 20px;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.4);
+  transition: 0.3s ease-in-out;
+  z-index: 100;
+}
+
+#menu-lateral ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+#menu-lateral ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#menu-lateral ul li a:hover {
+  color: #bb86fc;
+}
+
+
+footer{
+    position: absolute;
+    bottom: 0;
+    color: #eee;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    background-color: #000000a9;
+}
+
+/* responsivo */
+@media (max-width: 768px) {
+
+ 
+}
+
+
+@media (max-width: 700px) {
+
+ .carrossel-wrapper {
+    display: block !important;      /* quebra o carrossel */
+    transform: none !important;     /* impede movimento */
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  .slide-retangulo {
+    min-width: 100%;
+    margin-bottom: 20px;            /* espaço entre cards */
+  }
+
+  .prev-retangulo,
+  .next-retangulo {
+    display: none !important;       /* remove botões */
+  }
+
+  
+  .hero-text h1 {
+  font-size: 50px;
+}
+
+ .menu-hamburguer {
+    display: block;
+  }
+
+  nav ul {
+    display: none;               /* esconde menu */
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: rgba(0,0,0,0.8);
+    padding: 20px;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 10px;
+  }
+
+  nav ul.active {
+    display: flex;               /* mostra ao clicar */
+  }
+  nav ul {
+    display: none !important;
+  }
+
+  .menu-hamburguer {
+    display: block;
+    font-size: 32px;
+    cursor: pointer;
+  }
+
+  footer{
+    position: relative;
+    bottom: 0;
+    font-size: 15px;
+  }
+}
+/* ==== Caixa de Acessibilidade ==== */
+.caixa-acessibilidade {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+}
+
+/* Botão principal */
+.botao-acessibilidade {
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 26px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.botao-acessibilidade:hover {
+  background-color: #5148d8;
+  transform: scale(1.05);
+}
+
+/* Conteúdo da caixa */
+.conteudo-acessibilidade {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  background-color: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Estado aberto com animação */
+.conteudo-acessibilidade.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+/* Título e botões internos */
+.conteudo-acessibilidade h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.controle {
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.controle:hover {
+  background-color: #5148d8;
+  transform: scale(1.05);
+}

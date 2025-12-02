@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mentor.IA</title>
+    <link rel="stylesheet" href="chatbot.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+    
+    
+</head>
+<body>
+  <div id="particles-container"></div>
+  
+<div class="topo-chat">
+  <div class="usuario-info" id="usuarioNome"></div>
+</div>
+
+<!-- BOTÃO HAMBÚRGUER MOBILE -->
+<button class="menu-btn" id="menuBtn">
+  <i class="fas fa-bars"></i>
+</button>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay"></div>
+
+
+
+<div class="topo-chat">
+  <div class="usuario-info" id="usuarioNome"></div>
+</div>
+
+<div class="app-container">
+    <!-- Sidebar -->
+ 
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="imgs/mentor_logo.png" alt="logo beca"> 
+            <h2 class="logo">MENTOR<span>.IA</span></h2>
+        
+        </div>
+        <nav>
+            <ul>
+                <li><i class="fas fa-lock"></i> <a href="../home/index.html">HOME</a></li>
+      
+            </ul>
+        </nav>
+
+        <div class="historico-container">
+            <h3>Histórico</h3>
+            <div id="historicos"></div>
+        </div>
+
+    <!-- Botão Novo Chat mobile -->
+    <button id="novoChatMobile" class="novo-chat-mobile">🆕</button>
+    </aside>
+
+    <!-- Área principal -->
+    <main class="content">
+      <div class="chatbox">
+        <div id="mensagens"></div>
+        <div class="input-container">
+            <input type="text" id="usuario" placeholder="Escreva..." />
+            <!-- Botão enviar com ícone -->
+            <button id="enviar" class="enviar-btn"><i class="fas fa-paper-plane"></i></button>
+            <!-- Botão Novo Chat padrão desktop -->
+            <button id="novoChat" class="novo-chat-desktop">🆕 Novo Chat</button>
+        </div>
+      </div>
+    </main>
+</div>
+
+</div>
+
+<!-- Popup Renomear -->
+<div id="renamePopup" class="popup">
+    <div class="popup-content">
+        <span class="close" id="closeRenamePopup">&times;</span>
+        <h2>Renomear Chat</h2>
+        <input type="text" id="renameInput" placeholder="Digite o novo nome">
+        <button id="confirmRename">Salvar</button>
+    </div>
+</div>
+
+
+</div>
+<!-- Caixa de acessibilidade -->
+<div class="caixa-acessibilidade">
+  <button id="abrirAcessibilidade" class="botao-acessibilidade" aria-label="Abrir acessibilidade">♿</button>
+
+  <div class="conteudo-acessibilidade" id="conteudoAcessibilidade">
+    <h3>Acessibilidade</h3>
+    <button id="aumentar" class="controle">A+</button>
+    <button id="diminuir" class="controle">A-</button>
+    <button id="resetar" class="controle">A</button>
+
+    <!-- VLibras -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="app.js"></script>
+
+
+<script>
+AOS.init();
+</script>
+
+
+<script>
+particlesJS("particles-container", {
+   particles: {
+     number: { value: 150, density: { enable: true, value_area: 800 } },
+     color: { value: "#A80ABA" },
+     shape: {
+       type: "circle",
+       stroke: { width: 0.5, color: "#A80ABA" },
+       polygon: { nb_sides: 5 }
+     },
+     opacity: { value: 0.5, random: false },
+     size: { value: 3, random: true },
+     line_linked: {
+       enable: true,
+       distance: 150,
+       color: "#ffffff",
+       opacity: 0.4,
+       width: 1
+     },
+     move: {
+       enable: true,
+       speed: 3,
+       direction: "none",
+       out_mode: "out"
+     }
+   },
+   interactivity: {
+     detect_on: "canvas",
+     events: {
+       onhover: { enable: true, mode: "repulse" },
+     },
+     modes: {
+       repulse: { distance: 200, duration: 15 },
+       push: { particles_nb: 4 }
+     }
+   },
+   retina_detect: true
+ });
+
+const menuBtn = document.getElementById("menuBtn");
+    const overlay = document.getElementById("overlay");
+    
+    function toggleMenu() {
+      document.body.classList.toggle("sidebar-open");
+    }
+    
+    menuBtn.addEventListener("click", toggleMenu);
+    overlay.addEventListener("click", toggleMenu);
+
+    document.addEventListener("DOMContentLoaded", function () {
+  const botaoAcessibilidade = document.getElementById("abrirAcessibilidade");
+  const conteudoAcessibilidade = document.getElementById("conteudoAcessibilidade");
+
+  botaoAcessibilidade.addEventListener("click", () => {
+    conteudoAcessibilidade.classList.toggle("mostrar");
+  });
+
+  // Controles de fonte
+  const aumentar = document.getElementById("aumentar");
+  const diminuir = document.getElementById("diminuir");
+  const resetar = document.getElementById("resetar");
+  const elementos = document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, a, li, span, button");
+
+  let tamanhoAtual = 100;
+
+  aumentar.addEventListener("click", () => {
+    if (tamanhoAtual < 150) {
+      tamanhoAtual += 10;
+      elementos.forEach(el => el.style.fontSize = `${tamanhoAtual}%`);
+    }
+  });
+
+  diminuir.addEventListener("click", () => {
+    if (tamanhoAtual > 70) {
+      tamanhoAtual -= 10;
+      elementos.forEach(el => el.style.fontSize = `${tamanhoAtual}%`);
+    }
+  });
+
+  resetar.addEventListener("click", () => {
+    tamanhoAtual = 100;
+    elementos.forEach(el => el.style.fontSize = `${tamanhoAtual}%`);
+  });
+});
+  /*libras*/
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
+
+    </script>
+    
+    
+
+</body>
+</html>

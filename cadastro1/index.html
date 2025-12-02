@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Cadastro e Login | Firebase</title>
+</head>
+
+<body>
+
+    <!-- Popup de boas-vindas -->
+<div id="popupBoasVindas" class="popup">
+    <p id="nomeUsuarioPopup"></p>
+    <button id="fecharPopup">Fechar</button>
+</div>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Criar conta</h1>
+                <input type="text" id="regNome" placeholder="Nome completo" required>
+                <input type="email" id="regEmail" placeholder="E-mail" required>
+                <input type="password" id="regSenha" placeholder="Senha" required>
+                <button type="button" onclick="registrar()">Registrar</button>
+                <p id="regMensagem" class="mensagem"></p>
+            </form>
+        </div>
+
+        <div class="form-container sign-in">
+            <form>
+                <h1>Login</h1>
+                <input type="email" id="loginEmail" placeholder="E-mail" required>
+                <input type="password" id="loginSenha" placeholder="Senha" required>
+                <button type="button" onclick="login()">Entrar</button>
+                <p id="loginMensagem" class="mensagem"></p>
+            </form>
+        </div>
+
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Bem-vindo de Volta!</h1>
+                    <p>Faça login para conseguir utilizar o Mentor.IA</p>
+                    <button class="hidden" id="login">Login</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Olá, estudante!</h1>
+                    <p>Registre-se para ter acesso, e começar seus estudos</p>
+                    <button class="hidden" id="register">Criar Conta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      </div>
+<!-- Caixa de acessibilidade -->
+<div class="caixa-acessibilidade">
+  <button id="abrirAcessibilidade" class="botao-acessibilidade" aria-label="Abrir acessibilidade">♿</button>
+
+  <div class="conteudo-acessibilidade" id="conteudoAcessibilidade">
+    <h3>Acessibilidade</h3>
+    <button id="aumentar" class="controle">A+</button>
+    <button id="diminuir" class="controle">A-</button>
+    <button id="resetar" class="controle">A</button>
+
+    <!-- VLibras -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+  </div>
+</div>
+
+
+<!-- Adicione antes do fechamento do body (substituindo o atual DOMContentLoaded) -->
+<script>
+  // Garantir valor inicial no CSS (você também pode colocar no seu arquivo CSS)
+  document.documentElement.style.fontSize = localStorage.getItem('tamanhoFonte') || '100%';
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const botaoAcessibilidade = document.getElementById("abrirAcessibilidade");
+    const conteudoAcessibilidade = document.getElementById("conteudoAcessibilidade");
+
+    botaoAcessibilidade.addEventListener("click", () => {
+      conteudoAcessibilidade.classList.toggle("mostrar");
+    });
+
+    // Controles de fonte
+    const aumentar = document.getElementById("aumentar");
+    const diminuir = document.getElementById("diminuir");
+    const resetar = document.getElementById("resetar");
+
+    // limite mínimo e máximo (em porcentagem)
+    const MIN = 70;
+    const MAX = 150;
+
+    // lê valor salvo (em porcentagem, ex: "110%") ou usa 100%
+    let tamanhoAtual = parseInt((localStorage.getItem('tamanhoFonte') || '100%').replace('%',''), 10);
+
+    function aplicarTamanho(t) {
+      // atualiza root (html) para que rems e heranças ajustem corretamente
+      document.documentElement.style.fontSize = `${t}%`;
+      // salva preferência
+      localStorage.setItem('tamanhoFonte', `${t}%`);
+    }
+
+    // aplica no carregamento
+    aplicarTamanho(tamanhoAtual);
+
+    aumentar.addEventListener("click", () => {
+      if (tamanhoAtual < MAX) {
+        tamanhoAtual += 10;
+        aplicarTamanho(tamanhoAtual);
+      }
+    });
+
+    diminuir.addEventListener("click", () => {
+      if (tamanhoAtual > MIN) {
+        tamanhoAtual -= 10;
+        aplicarTamanho(tamanhoAtual);
+      }
+    });
+
+    resetar.addEventListener("click", () => {
+      tamanhoAtual = 100;
+      aplicarTamanho(tamanhoAtual);
+    });
+  });
+</script>
+
+
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+
+    <script src="firebase.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

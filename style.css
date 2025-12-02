@@ -1,0 +1,183 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #222;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Cabeçalho */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #bb86fc;
+}
+
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #bb86fc;
+}
+
+/* Hero Section */
+.hero {
+  height: 40vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #1d1b20;
+  padding-top: 5%;
+  margin-top: 70px;
+}
+
+/* Texto */
+.hero-text h1 {
+  font-size: 42px;
+  color: #bb86fc;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  }
+
+.hero-text span {
+  color: #fffdd0;
+}
+
+.hero-text p {
+  color: #eee;
+  max-width: 700px;
+  margin: 15px auto;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.botao {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 35px;
+  background-color: #8849fd;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.botao:hover {
+  background-color: #9b5de5;
+  transform: scale(1.05);
+}
+
+#particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0; /* atrás de tudo */
+  pointer-events: none; /* ← ALTERADO */
+  background: transparent;
+}
+
+header, .hero, .caixa-transparente, .conteudo, .equipe, .sobre {
+  position: relative;
+  z-index: 10;
+}
+.botao-cadastro {
+  padding: 8px 20px;
+  background: #bb86fc;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.botao-cadastro:hover {
+  background: #9b5de5;
+}
+
+ /*  Botões de fonte fixos à esquerda */
+    .botoes-fonte-fixo {
+      position: fixed;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+
+    .botoes-fonte-fixo button {
+      background: #6200ea;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+      width: 60px;
+    }
+
+    .botoes-fonte-fixo button:hover {
+      background: #4500b5;
+      transform: scale(1.05);
+    }
+
+    /* Botão VLibras continua à direita */
+    .vlibras-fixo {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      z-index: 999;
+    }
+
+  footer{
+    position: absolute;
+    bottom: 0;
+    color: #eee;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    background-color: #000000a9;
+}
+
+

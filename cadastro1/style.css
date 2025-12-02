@@ -1,0 +1,347 @@
+/* Reset Básico e Estilo do Body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* garantir a base e permitir transição suave */
+html {
+  font-size: 100%; /* base — será sobrescrito pelo JS quando o usuário ajustar */
+  transition: font-size 180ms ease;
+}
+/* usar rems / herdar para elementos de formulários */
+body, input, textarea, select, button {
+  font-size: 1rem; /* agora todos acompanharão mudanças na raíz */
+}
+/* placeholders também escalam corretamente quando inputs usam rem */
+input::placeholder,
+textarea::placeholder {
+  font-size: 0.95rem;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222; /* Mesmo fundo da sua home */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Container Principal */
+.container {
+    background-color: #1d1b20; /* Cor similar aos retângulos do carrossel */
+    border-radius: 20px; /* Mesma borda dos retângulos */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+}
+
+/* Formulários */
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.form-container form {
+    background-color: #1d1b20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+    text-align: center;
+}
+
+.form-container h1 {
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff; /* Título em branco */
+}
+
+/* Inputs (Campos de texto) */
+.form-container input {
+    background-color: #333;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+    color: #fff;
+    outline: none;
+}
+
+.form-container input::placeholder {
+    color: #aaa;
+}
+
+/* Mensagens de erro/sucesso */
+.mensagem {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    min-height: 20px; /* Evita que o layout "pule" */
+}
+
+/* Botões */
+button {
+    border-radius: 30px; /* Borda arredondada como na home */
+    background-color: #8849fd; /* Cor roxa principal */
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in, background-color 0.3s;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #9b5de5; /* Efeito hover da home */
+    transform: scale(1.05);
+}
+
+button.hidden {
+    background-color: transparent;
+    border: 1px solid #fff;
+}
+
+/* Estrutura de Login / Cadastro */
+.sign-in {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.sign-up {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+/* Animação do Container */
+.container.active .sign-in {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.container.active .sign-up {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+}
+
+@keyframes show {
+    0%, 49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+    50%, 100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+/* Painel de Overlay (Toggle) */
+.toggle-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 150px;
+    z-index: 100;
+}
+
+.container.active .toggle-container {
+    transform: translateX(-100%);
+    border-radius: 0 150px 150px 0;
+}
+
+.toggle {
+    background-color: #bb86fc; /* Cor de destaque da home */
+    background: linear-gradient(to right, #8849fd, #bb86fc);
+    height: 100%;
+    color: #fff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.container.active .toggle {
+    transform: translateX(50%);
+}
+
+.toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.toggle-left {
+    transform: translateX(-200%);
+}
+
+.container.active .toggle-left {
+    transform: translateX(0);
+}
+
+.toggle-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.active .toggle-right {
+    transform: translateX(200%);
+}
+/*bem vindo*/
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: #1d1b20;
+    color: #fff;
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    text-align: center;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out, opacity 0.3s;
+    opacity: 0;
+}
+
+.popup.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.popup button {
+    margin-top: 15px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 15px;
+    background-color: #8849fd;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.popup button:hover {
+    background-color: #9b5de5;
+}
+
+
+
+/* caixa de acessibilidade começa aqui */
+.caixa-acessibilidade {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+
+  width: 70px;           /* tamanho do círculo */
+  height: 70px;          /* mesmo que a largura para ficar perfeitamente circular */
+  border-radius: 50%;    /* formato circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Mantém o layout limpo — sem cor para o container, o botão ocupa o círculo */
+  background: transparent;
+  pointer-events: auto;
+}
+
+/* Botão principal ocupa o círculo todo (mantém acessibilidade) */
+.botao-acessibilidade {
+  width: 80%;
+  height: 110%;
+  border-radius: 50%;
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.12s;
+}
+.botao-acessibilidade:hover { transform: scale(0.97); background-color: #5148d8; }
+
+/* Pop-up de opções - circular e posicionado acima do botão */
+.conteudo-acessibilidade {
+  position: absolute;
+  bottom: 90px;         /* distancia do botão; ajuste se mudar o tamanho do botão */
+  right: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: 10%;
+  background-color: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(5px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+/* Estado aberto do pop-up */
+.conteudo-acessibilidade.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+/* Ajustes internos para caber bem no círculo */
+.conteudo-acessibilidade h3 {
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+  color: #fff;
+}
+
+/* Botões dentro do popup — reduzidos para caber no círculo */
+.controle {
+  min-width: 44px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+

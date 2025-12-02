@@ -1,0 +1,460 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+/* garantir a base e permitir transição suave */
+html {
+  font-size: 100%; /* base — será sobrescrito pelo JS quando o usuário ajustar */
+  transition: font-size 180ms ease;
+}
+/* usar rems / herdar para elementos de formulários */
+body, input, textarea, select, button {
+  font-size: 1rem; /* agora todos acompanharão mudanças na raíz */
+}
+/* placeholders também escalam corretamente quando inputs usam rem */
+input::placeholder,
+textarea::placeholder {
+  font-size: 0.95rem;
+}
+  
+  
+  body {
+    background: #222;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Partículas */
+  #particles-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  /* HEADER */
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+  }
+  
+  .logo img {
+    width: 35px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  nav a:hover {
+    color: #bb86fc;
+  }
+  
+  .botao-cadastro {
+    background: #bb86fc;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+  
+  .botao-cadastro:hover {
+    background: #9b5de5;
+  }
+  
+  /* Menu Mobile */
+  .menu-hamburguer {
+    display: none;
+    font-size: 32px;
+    cursor: pointer;
+  }
+  
+  #menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 90;
+  }
+  
+  #menu-lateral {
+    position: fixed;
+    right: -260px;
+    top: 0;
+    width: 260px;
+    height: 100vh;
+    background: #2c2c2c;
+    padding: 40px;
+    transition: 0.3s;
+    z-index: 100;
+  }
+  
+  #menu-lateral ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  #menu-lateral a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  #menu-lateral a:hover {
+    color: #bb86fc;
+  }
+  
+  /* HERO */
+  .hero {
+    height: 45vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hero-text h1 {
+    font-size: 55px;
+    text-shadow: 3px 3px 8px black;
+  }
+  
+  .hero-text span {
+    color: #bb86fc;
+  }
+  
+  .hero-text p {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  
+  /* CONTEÚDO */
+  .conteudo {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto 80px;
+  }
+  
+  .caixa {
+    background: #1d1b20;
+    padding: 35px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  }
+  
+  .caixa h2 {
+    font-size: 30px;
+    color: #bb86fc;
+    margin-bottom: 15px;
+  }
+  
+  .caixa p {
+    font-size: 19px;
+    line-height: 1.6;
+  }
+  
+  /* FOOTER */
+  footer {
+    background: rgba(0,0,0,0.8);
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    color: #eee;
+  }
+  
+  /* RESPONSIVO */
+  @media (max-width: 700px) {
+  
+    .menu-hamburguer {
+      display: block;
+    }
+  
+    nav ul {
+      display: none;
+    }
+  
+    .hero-text h1 {
+      font-size: 40px;
+    }
+  
+    .caixa {
+      padding: 25px;
+    }
+  }
+  /* ===== LINHA DO TEMPO ===== */
+
+.timeline-section {
+    padding: 60px 20px;
+    color: #fff;
+  }
+  
+  .timeline-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #bb86fc;
+  }
+  
+  .timeline {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    padding-left: 20px;
+  }
+  
+  /* Linha vertical */
+  .timeline:before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #bb86fc;
+    border-radius: 10px;
+  }
+  
+  /* Cada item */
+  .timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-left: 60px;
+  }
+  
+  /* Bolinhas da linha */
+  .timeline-item:before {
+    content: "";
+    position: absolute;
+    left: 11px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #bb86fc;
+    border: 3px solid #ffffff33;
+    top: 5px;
+  }
+  
+  /* Caixa de conteúdo */
+  .timeline-content {
+    background-color: #1e1e1e;
+    border: 2px solid #bb86fc;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(187, 134, 252, 0.4);
+    transition: 0.3s ease;
+  }
+  
+  /* Hover */
+  .timeline-content:hover {
+    transform: translateX(8px);
+    box-shadow: 0 0 25px rgba(187, 134, 252, 0.7);
+  }
+  
+  .timeline-content h3 {
+    color: #bb86fc;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 600px) {
+    .timeline:before {
+      left: 10px;
+    }
+  
+    .timeline-item {
+      padding-left: 50px;
+    }
+  
+    .timeline-item:before {
+      left: 2px;
+    }
+  }
+  /* ===== TIMELINE + ANIMAÇÕES ===== */
+
+.timeline-section {
+  padding: 60px 20px;
+  color: #fff;
+  background-color: #121212;
+}
+
+.timeline-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #bb86fc;
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+  padding-left: 20px;
+}
+
+/* Linha vertical */
+.timeline:before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: #bb86fc;
+  border-radius: 5px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 60px;
+}
+
+/* Bolinha */
+.timeline-item:before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #bb86fc;
+  
+  top: 5px;
+}
+
+/* CAIXAS */
+.timeline-content {
+  background-color: #121212;
+  border: 2px solid #bb86fc;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(187, 134, 252, 0.4);
+  transition: 0.3s ease;
+}
+
+/* Hover neon */
+.timeline-content:hover {
+  transform: translateX(10px);
+  box-shadow: 0 0 25px rgba(187, 134, 252, 0.7);
+}
+
+.timeline-content h3 {
+  color: #bb86fc;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+/* -------- RESPONSIVO -------- */
+@media (max-width: 600px) {
+  .timeline:before {
+    left: 10px;
+  }
+  .timeline-item {
+    padding-left: 50px;
+  }
+  .timeline-item:before {
+    left: 2px;
+  }
+}
+/* ==== Caixa de Acessibilidade ==== */
+.caixa-acessibilidade {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+}
+
+/* Botão principal */
+.botao-acessibilidade {
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 26px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.botao-acessibilidade:hover {
+  background-color: #5148d8;
+  transform: scale(1.05);
+}
+
+/* Conteúdo da caixa */
+.conteudo-acessibilidade {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  background-color: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Estado aberto com animação */
+.conteudo-acessibilidade.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+/* Título e botões internos */
+.conteudo-acessibilidade h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.controle {
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.controle:hover {
+  background-color: #5148d8;
+  transform: scale(1.05);
+}
+
+  

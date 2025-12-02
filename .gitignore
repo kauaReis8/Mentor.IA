@@ -1,0 +1,32 @@
+# Arquivos do Firebase
+cadastro1/JS/firebase.js
+
+# Arquivo do chatbot
+chatobot/JS/chat.js
+
+
+node_modules/
+.env
+.env.local
+*.log
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Environment
+.env
+.env.*
+firebase.js
+firebase.json
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+node_modules
+.env
+
