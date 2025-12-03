@@ -1,3 +1,20 @@
+/*menu mobile*/
+
+const btn = document.getElementById("menu-btn");
+const menu = document.getElementById("menu-lateral");
+const overlay = document.getElementById("menu-overlay");
+
+btn.addEventListener("click", () => {
+  menu.style.right = "0";
+  overlay.style.display = "block";
+});
+
+overlay.addEventListener("click", () => {
+  menu.style.right = "-260px";
+  overlay.style.display = "none";
+});
+
+
 /*acessibilidades*/
 const aumentar = document.getElementById('aumentar');
 const diminuir = document.getElementById('diminuir');
