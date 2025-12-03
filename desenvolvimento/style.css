@@ -84,6 +84,8 @@ textarea::placeholder {
     display: none;
     font-size: 32px;
     cursor: pointer;
+    position: relative;
+   z-index: 200;
   }
   
   #menu-overlay {
@@ -106,7 +108,7 @@ textarea::placeholder {
     background: #2c2c2c;
     padding: 40px;
     transition: 0.3s;
-    z-index: 100;
+    z-index: 200;
   }
   
   #menu-lateral ul {
