@@ -472,9 +472,31 @@ header, .hero, .caixa-transparente, .conteudo, .equipe, .sobre {
 
 
     /* Novo Chat navbar */
-    .novo-chat-mobile {
-      display: inline-block;
-      margin-left: 10px;
+.novo-chat-mobile {
+     display: block !important;
+    width: 100%;
+    background: #5a10e4;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+
+    padding: 16px 12px;
+    margin-top: 15px;
+
+    border: none;
+    border-radius: 12px;
+
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+ .novo-chat-mobile:hover {
+    opacity: 0.9;
+  }
+
+  .novo-chat-mobile:active {
+    opacity: 0.8;
   }
 
   /* Esconde botão desktop dentro do chat */

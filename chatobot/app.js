@@ -245,6 +245,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     carregarHistoricos();
+
+    const novoChatMobile = document.getElementById("novoChatMobile");
+novoChatMobile.addEventListener("click", () => {
+    const mensagens = document.getElementById("mensagens").innerHTML;
+
+    if (mensagens.trim() !== "") salvarHistorico(mensagens);
+
+    document.getElementById("mensagens").innerHTML = "";
 });
 
 /* ===============================
@@ -275,15 +283,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     menuBtn.addEventListener("click", toggleMenu);
     overlay.addEventListener("click", toggleMenu);
-});
-
-/* ===============================
-   BOTÃO "NOVO CHAT" MOBILE
-================================ */
-
-const novoChatMobile = document.getElementById("novoChatMobile");
-novoChatMobile.addEventListener("click", () => {
-    const mensagens = document.getElementById("mensagens").innerHTML;
-    if (mensagens.trim() !== "") salvarHistorico(mensagens);
-    document.getElementById("mensagens").innerHTML = "";
 });
