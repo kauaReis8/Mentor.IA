@@ -141,7 +141,7 @@ auth.signInWithEmailAndPassword(email, senha)
             
             // Redireciona para a página principal 
             setTimeout(() => {
-                window.location.href = '../chatobot/index2.html?popup=1'; // Usando o mesmo redirecionamento que você tinha
+                window.location.href = '../chatobot/chatbot.html'; // Usando o mesmo redirecionamento que você tinha
             }, 1000);
 
         })
