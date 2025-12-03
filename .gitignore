@@ -17,8 +17,6 @@ npm-debug.log*
 # Environment
 .env
 .env.*
-firebase.js
-firebase.json
 
 # Logs
 *.log
